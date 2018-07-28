@@ -2,7 +2,7 @@
   "name": "directbot-slack",
   "version": "1.0.0",
   "description": "A Slack bot created and managed by Lincubate Org",
-  "main": "entry.js",
+  "main": "./src/entry.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,29 +1,29 @@
 /* https://www.npmjs.com/package/@slack/client */
 
-// defining global constants
+
 const Slack = require("@slack/client"),
     { RTMClient } = Slack,
     token = process.env.SLACK_TOKEN, // (Environment Variable)
     rtm = new RTMClient(token),
     {DataSet} = require('./command.js'),
+    actions = require('./actions.js'),
     commands = [];
 
 
 
-// defining functions
-function assert(condition) {
-    if (!condition) {
-        throw (new Error("Assert() condition returned false."));
-    }
-}
-
-// including commands
 commands.push(require('./commands/help.js'));
 
-// initializing the RTMClient
+
 rtm.start();
 
-// on message-sent
+
 rtm.on("message", (msg_event) => {
-    let data = {};
+
+    if ((msg_event.subtype && msg_event.subtype === 'bot_message') ||
+        (!msg_event.subtype && msg_event.user === rtm.activeUserId)) {
+        return;
+    }
+
+
+    let data = new DataSet();
 });
