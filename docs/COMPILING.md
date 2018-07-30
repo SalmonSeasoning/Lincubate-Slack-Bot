@@ -1,10 +1,8 @@
 When compiling the documentation for this bot, please use:
 `npm install -g jsdoc`
 and
-`jsdoc ./src -d ./docs`
-in root of repository.
-You might also need to do
-`jsdoc ./src/commands -d ./docs`
-because JSDoc compiler seems to avoid scanning additional folders.
+`jsdoc ./src ./src/commands -d ./docs`
+in root of repository. Please be sure to add any other following
+directories when doing the JSDoc compile command.
 
 Thank you.
