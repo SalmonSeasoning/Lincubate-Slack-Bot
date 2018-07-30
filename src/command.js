@@ -35,25 +35,6 @@ class BaseCommand {
 }
 
 /**
- * Class extending BaseCommand. Strictly for Bot Administrators. These should NOT be allowed to modify usage in Workspaces!
- * @class
- * @extends BaseCommand
- * @description Command restricted to Bot Administrators. Should not have any ability to interact in Workspaces.
- */
-class BotAdminCommand extends BaseCommand {
-    /**
-     * Set command details.
-     * @constructor
-     * @param {string} name Name of the command.
-     * @param {number} auth Number (see Roles) representing authority.
-     * @param {function} todo Function to run when command is called by authority.
-     */
-    constructor(name, auth, todo) {
-        super(name, auth, todo);
-    }
-}
-
-/**
  * Class holding the data that will be passed along to a command function.
  * @class
  * @description DataSet class to be passed to command functions.
@@ -63,11 +44,15 @@ class DataSet {
      * Set data details.
      * @constructor
      * @param {MessageEvent} msg_event RTM Message Event
-     * @param {MessageEvent.auth} client RTM Message Event Author
+     * @param {RTMClient} client RTMClient
+     * @param {WebClient} webclient WebClient
      */
-    constructor(msg_event, client) {
-        this.msg_event = msg_event;
-        this.client = client;
+    constructor(msg_event, client, webclient) {
+        this.message = msg_event;
+        /** @alias this.client this.rtmclient */
+        this.client;
+        this.rtmclient = this.rtmclient = client;
+        this.webclient = webclient;
     }
 }
 
@@ -86,4 +71,4 @@ const Roles = {
 
 Object.freeze(Roles);
 
-module.exports = { BaseCommand, BotAdminCommand, Roles, DataSet };
+module.exports = { BaseCommand, Roles, DataSet };
