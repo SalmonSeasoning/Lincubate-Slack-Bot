@@ -2,7 +2,7 @@
  * @module command
  * @description A module for commands.
  */
-const slack = require('@slack/client')
+const slack = require("@slack/client");
 
 /**
  * @class
