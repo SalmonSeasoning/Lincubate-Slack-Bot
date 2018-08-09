@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: commands/help.js</title>
+    <title>JSDoc: Source: commands/doathing.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: commands/help.js</h1>
+    <h1 class="page-title">Source: commands/doathing.js</h1>
 
     
 
@@ -27,16 +27,14 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @module command/help
- * @description A module for adding the help command.
+ * @module command/doathing
+ * @description A module for "doathing" command. (Memes)
  */
 
 const CMD = require('../command.js');
 
-const command = new CMD.BaseCommand("help", CMD.Roles.WorkspaceAdmin, (data) => {
-    let client = data.getRTMClient(),
-        message = data.getMessage();
-    client.sendMessage("Commands are an upcoming feature. Lol.", message.channel);
+const command = new CMD.BaseCommand("doathing", CMD.Roles.SingleChannelGuest, (data) => {
+
 });
 
 module.exports = command;</code></pre>
