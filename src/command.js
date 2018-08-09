@@ -1,12 +1,10 @@
 /**
- * @module command
- * @description A module for commands.
+ * @module command A module for commands.
  */
 const slack = require("@slack/client");
 
 /**
- * @class
- * @description Class representing a bot command.
+ * @class Class representing a bot command.
  */
 class BaseCommand {
     /**
@@ -23,6 +21,7 @@ class BaseCommand {
     }
     /**
      * Call the command function.
+     * @function call
      * @param {DataSet} data Data instanceof DataSet passed.
      */
     call(data) {
@@ -36,8 +35,7 @@ class BaseCommand {
 
 /**
  * Class holding the data that will be passed along to a command function.
- * @class
- * @description DataSet class to be passed to command functions.
+ * @class DataSet class to be passed to command functions.
  */
 class DataSet {
     /**
@@ -46,20 +44,24 @@ class DataSet {
      * @param {MessageEvent} msg_event RTM Message Event
      * @param {RTMClient} client RTMClient
      * @param {WebClient} webclient WebClient
+     * @param {string} txt The raw text (excluding prefix + command) of Message
+     * @param {Object} userdata The UserData from the WebClient
      */
-    constructor(msg_event, client, webclient) {
+    constructor(msg_event, txt, client, webclient, userdata) {
         this.message = msg_event;
         /** @alias this.client this.rtmclient */
         this.client;
         this.rtmclient = this.rtmclient = client;
         this.webclient = webclient;
+        this.userdata = userdata;
+        this.text = txt;
     }
     /**
      * @function getClient
      * @alias getRTMClient
      * @description Return RTMClient.
      */
-    get getClient(){
+    get getClient() {
         return this.client;
     }
     /**
@@ -82,7 +84,21 @@ class DataSet {
      * @description Return message event.
      */
     get getMessage() {
-
+        return this.message;
+    }
+    /**
+     * @function getText
+     * @description Return text from Message event.
+     */
+    get getText() {
+        return this.text;
+    }
+    /**
+     * @function getUserData
+     * @description Return UserData from Message.
+     */
+    get getUserData() {
+        return this.userdata;
     }
 }
 
@@ -92,10 +108,25 @@ class DataSet {
  * @type {number}
  */
 const Roles = {
+    /**
+     * @description Is a Workspace Owner. Provide maximum access to bot features. Control all permissions, even admins'.
+     */
     WorkspaceOwner: 4,
+    /**
+     * @description Is a Workspace Admin. Provide access to everything but owner-specific features. Control all permissions.
+     */
     WorkspaceAdmin: 3,
+    /**
+     * @description Is a standard member. Restrict to standard commands. Control permissions for SingleChannelGuests.
+     */
     Member: 2,
+    /**
+     * @description Guest. Restrict to very simple commands.
+     */
     MultiChannelGuest: 1,
+    /**
+     * @description Guest. Potentially untrustable. Same as MultiChannelGuest, permissions can be managed by Member.
+     */
     SingleChannelGuest: 0
 };
 
