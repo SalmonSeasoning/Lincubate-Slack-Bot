@@ -27,6 +27,18 @@ rtm.on("message", (message) => {
         (!message.subtype && message.user === rtm.activeUserId) ||
         !message.text) return;
 
+
+    /*
+    
+        api.slack.com/events/message
+
+        check subtypes so that a message event
+        isn't mistaken for a new message
+    
+    */
+
+
+
     let text = message.text, args = text.split(' ');
 
     // check if command

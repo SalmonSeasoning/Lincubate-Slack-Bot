@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: actions</title>
+    <title>JSDoc: Class: BaseCommand</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: actions</h1>
+    <h1 class="page-title">Class: BaseCommand</h1>
 
     
 
@@ -28,8 +28,9 @@
 
 <header>
     
+        <h2><span class="attribs"><span class="type-signature"></span></span>BaseCommand<span class="signature">(name, auth, todo)</span><span class="type-signature"></span></h2>
         
-            
+            <div class="class-description">Class representing a bot command.</div>
         
     
 </header>
@@ -38,20 +39,124 @@
     <div class="container-overview">
     
         
-            <div class="description">A module for certain actions.</div>
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="BaseCommand"><span class="type-signature"></span>new BaseCommand<span class="signature">(name, auth, todo)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Set command details.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
         
 
         
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
             
 
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
 
 
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Name of the command.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>auth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
 
 
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Number (see Roles) representing authority.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>todo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
 
 
+            
+            </td>
 
+            
 
+            
+
+            <td class="description last">Function to run when command is called by authority.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -87,7 +192,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="actions.js.html">actions.js</a>, <a href="actions.js.html#line1">line 1</a>
+        <a href="command.js.html">command.js</a>, <a href="command.js.html#line9">line 9</a>
     </li></ul></dd>
     
 
@@ -115,7 +220,6 @@
 
 
 
-        
     
     </div>
 
@@ -133,280 +237,6 @@
 
     
 
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~acquireUserData"><span class="type-signature">(inner) </span>acquireUserData<span class="signature">(condition)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Use WebClient to acquire user information via user ID.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>condition</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="actions.js.html">actions.js</a>, <a href="actions.js.html#line16">line 16</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~assert"><span class="type-signature">(inner) </span>assert<span class="signature">(condition)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Assert a certain condition is true.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>condition</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="actions.js.html">actions.js</a>, <a href="actions.js.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     
 
     

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: actions</title>
+    <title>JSDoc: Class: DataSet</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: actions</h1>
+    <h1 class="page-title">Class: DataSet</h1>
 
     
 
@@ -28,8 +28,9 @@
 
 <header>
     
+        <h2><span class="attribs"><span class="type-signature"></span></span>DataSet<span class="signature">(msg_event, client, webclient, txt, userdata)</span><span class="type-signature"></span></h2>
         
-            
+            <div class="class-description">DataSet class to be passed to command functions.</div>
         
     
 </header>
@@ -38,20 +39,170 @@
     <div class="container-overview">
     
         
-            <div class="description">A module for certain actions.</div>
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="DataSet"><span class="type-signature"></span>new DataSet<span class="signature">(msg_event, client, webclient, txt, userdata)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Set data details.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
         
 
         
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>msg_event</code></td>
             
 
+            <td class="type">
+            
+                
+<span class="param-type">MessageEvent</span>
 
 
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">RTM Message Event</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>client</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RTMClient</span>
 
 
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">RTMClient</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>webclient</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebClient</span>
 
 
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">WebClient</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>txt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
 
 
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The raw text (excluding prefix + command) of Message</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userdata</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The UserData from the WebClient</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -87,7 +238,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="actions.js.html">actions.js</a>, <a href="actions.js.html#line1">line 1</a>
+        <a href="command.js.html">command.js</a>, <a href="command.js.html#line40">line 40</a>
     </li></ul></dd>
     
 
@@ -115,7 +266,6 @@
 
 
 
-        
     
     </div>
 
@@ -133,280 +283,6 @@
 
     
 
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~acquireUserData"><span class="type-signature">(inner) </span>acquireUserData<span class="signature">(condition)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Use WebClient to acquire user information via user ID.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>condition</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="actions.js.html">actions.js</a>, <a href="actions.js.html#line16">line 16</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~assert"><span class="type-signature">(inner) </span>assert<span class="signature">(condition)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Assert a certain condition is true.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>condition</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="actions.js.html">actions.js</a>, <a href="actions.js.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     
 
     

@@ -127,7 +127,17 @@ const Roles = {
     /**
      * @description Guest. Potentially untrustable. Same as MultiChannelGuest, permissions can be managed by Member.
      */
-    SingleChannelGuest: 0
+    SingleChannelGuest: 0,
+    /**
+     * Further information: This is not an official Slack role but a self-assigned role given to users with the rank
+     * to manage other users' bot permissions. (Meaning Owner->Admin and below, Admin->Member and below, Member->SingleChannelGuest)
+     * Since this is not an official role, a list of users must be stored in an array and that array must be checked to see if they are
+     * considered a violator. There isn't much reason for this to be here as you can get by while completely ignoring it, but it's here
+     * just for listing/identification purposes regarding commands and for allowing more possiblilities for such a restriction to be
+     * implemented.
+     * @description Violator. Do not accept ANY command requests. (Only given to users by a higher permission managing entity)
+     */
+    Violator: -1
 };
 
 Object.freeze(Roles);

@@ -27,14 +27,12 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @module command
- * @description A module for commands.
+ * @module command A module for commands.
  */
 const slack = require("@slack/client");
 
 /**
- * @class
- * @description Class representing a bot command.
+ * @class Class representing a bot command.
  */
 class BaseCommand {
     /**
@@ -51,6 +49,7 @@ class BaseCommand {
     }
     /**
      * Call the command function.
+     * @function call
      * @param {DataSet} data Data instanceof DataSet passed.
      */
     call(data) {
@@ -64,8 +63,7 @@ class BaseCommand {
 
 /**
  * Class holding the data that will be passed along to a command function.
- * @class
- * @description DataSet class to be passed to command functions.
+ * @class DataSet class to be passed to command functions.
  */
 class DataSet {
     /**
@@ -74,20 +72,24 @@ class DataSet {
      * @param {MessageEvent} msg_event RTM Message Event
      * @param {RTMClient} client RTMClient
      * @param {WebClient} webclient WebClient
+     * @param {string} txt The raw text (excluding prefix + command) of Message
+     * @param {Object} userdata The UserData from the WebClient
      */
-    constructor(msg_event, client, webclient) {
+    constructor(msg_event, txt, client, webclient, userdata) {
         this.message = msg_event;
         /** @alias this.client this.rtmclient */
         this.client;
         this.rtmclient = this.rtmclient = client;
         this.webclient = webclient;
+        this.userdata = userdata;
+        this.text = txt;
     }
     /**
      * @function getClient
      * @alias getRTMClient
      * @description Return RTMClient.
      */
-    get getClient(){
+    get getClient() {
         return this.client;
     }
     /**
@@ -110,7 +112,21 @@ class DataSet {
      * @description Return message event.
      */
     get getMessage() {
-
+        return this.message;
+    }
+    /**
+     * @function getText
+     * @description Return text from Message event.
+     */
+    get getText() {
+        return this.text;
+    }
+    /**
+     * @function getUserData
+     * @description Return UserData from Message.
+     */
+    get getUserData() {
+        return this.userdata;
     }
 }
 
@@ -120,11 +136,36 @@ class DataSet {
  * @type {number}
  */
 const Roles = {
+    /**
+     * @description Is a Workspace Owner. Provide maximum access to bot features. Control all permissions, even admins'.
+     */
     WorkspaceOwner: 4,
+    /**
+     * @description Is a Workspace Admin. Provide access to everything but owner-specific features. Control all permissions.
+     */
     WorkspaceAdmin: 3,
+    /**
+     * @description Is a standard member. Restrict to standard commands. Control permissions for SingleChannelGuests.
+     */
     Member: 2,
+    /**
+     * @description Guest. Restrict to very simple commands.
+     */
     MultiChannelGuest: 1,
-    SingleChannelGuest: 0
+    /**
+     * @description Guest. Potentially untrustable. Same as MultiChannelGuest, permissions can be managed by Member.
+     */
+    SingleChannelGuest: 0,
+    /**
+     * Further information: This is not an official Slack role but a self-assigned role given to users with the rank
+     * to manage other users' bot permissions. (Meaning Owner->Admin and below, Admin->Member and below, Member->SingleChannelGuest)
+     * Since this is not an official role, a list of users must be stored in an array and that array must be checked to see if they are
+     * considered a violator. There isn't much reason for this to be here as you can get by while completely ignoring it, but it's here
+     * just for listing/identification purposes regarding commands and for allowing more possiblilities for such a restriction to be
+     * implemented.
+     * @description Violator. Do not accept ANY command requests. (Only given to users by a higher permission managing entity)
+     */
+    Violator: -1
 };
 
 Object.freeze(Roles);
@@ -139,13 +180,13 @@ module.exports = { BaseCommand, Roles, DataSet };</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions.html">actions</a></li><li><a href="module-command.html">command</a></li><li><a href="module-command_doathing.html">command/doathing</a></li><li><a href="module-command_help.html">command/help</a></li><li><a href="module-CommandIndex.html">CommandIndex</a></li></ul><h3>Classes</h3><ul><li><a href="module-command-BaseCommand.html">BaseCommand</a></li><li><a href="module-command-DataSet.html">DataSet</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-actions.html">actions</a></li><li><a href="module-command%2520A%2520module%2520for%2520commands..html">command A module for commands.</a></li><li><a href="module-command_doathing.html">command/doathing</a></li><li><a href="module-command_help.html">command/help</a></li><li><a href="module-command_viewrepo.html">command/viewrepo</a></li><li><a href="module-commandindex.html">commandindex</a></li></ul><h3>Classes</h3><ul><li><a href="module-command%2520A%2520module%2520for%2520commands.BaseCommand.html">BaseCommand</a></li><li><a href="module-command%2520A%2520module%2520for%2520commands.DataSet.html">DataSet</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Aug 08 2018 20:10:57 GMT-0500 (Central Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Aug 08 2018 23:17:01 GMT-0500 (Central Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>
