@@ -54,6 +54,36 @@ class DataSet {
         this.rtmclient = this.rtmclient = client;
         this.webclient = webclient;
     }
+    /**
+     * @function getClient
+     * @alias getRTMClient
+     * @description Return RTMClient.
+     */
+    get getClient(){
+        return this.client;
+    }
+    /**
+     * @function getRTMClient
+     * @alias getClient
+     * @description Return RTMClient.
+     */
+    get getRTMClient() {
+        return this.client;
+    }
+    /**
+     * @function getWebClient
+     * @description Return WebClient.
+     */
+    get getWebClient() {
+        return this.webclient;
+    }
+    /**
+     * @function getMessage
+     * @description Return message event.
+     */
+    get getMessage() {
+
+    }
 }
 
 /**

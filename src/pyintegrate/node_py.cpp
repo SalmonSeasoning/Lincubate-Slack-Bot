@@ -13,7 +13,7 @@ namespace nodepy {
   void init(Local<Object> exports) {
     
   }
-
-  NODE_MODULE(NODE_GYP_MODULE_NAME, init);
+  
+  NODE_MODULE(NODE_GYP_MODULE_NAME, init)
 
 }
