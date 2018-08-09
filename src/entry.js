@@ -39,9 +39,10 @@ rtm.on("message", (message) => {
                 acquireUserData(message.user).then((slackReturnData)=>{
                     if(user.ok === false) {
                         throw(new Error("Oops! Something went wrong. acquireUserData() returned data but has failed."));
-                        return;
                     }
-                    dataset = new DataSet(message, rtm, web, slackReturnData.user);
+                    let shiftedText = text.split(' ').shift();
+                    shiftedText = shiftedText.join(' ');
+                    dataset = new DataSet(message, shiftedText, rtm, web, slackReturnData.user);
                     console.log(`${message.user} : ${command} [${new Date()}]`);
 
 
