@@ -1,5 +1,0 @@
-This is currently a Work-In-Progress Node C++ integration with Python.
-
-It is not finished quite yet and probably won't be for a while, so
-might be a mighty fine idea to just convert your Python code to JS
-while you're waiting. It'll have better support and compatibility.

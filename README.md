@@ -15,9 +15,13 @@ When you have it, you have 4 options.
 3) Pass it into the `node .` command (it should be read as if it were an environment variable).
 4) src/TOKEN.SECRET file. Configured in .gitignore to not be committed. (Recommended for contributors.)
 
-## PyIntegrate
-Node.js C++ Python integration is a Work In Progress and is currently Low Priority.
-For information about it, view src/pyintegrate/README.md.
-For status updates on it, view src/pyintegrate/STATUS.
+## Python Integration
+While there's still plans on implementing Python, certain things still need to be worked out before
+anything official happens. Like,
+- is it secure?
+- can it run side-by-side without issue?
+- how easily can it be connected to Node.js?
+- is it worth it?
 
-More details will be added as progression furthers
+With all of these questions in mind, it's difficult to try to find the right solution.
+Right now the route of implementing Python seems low-priority but it's on the agenda.
