@@ -16,45 +16,50 @@ function assert(condition) {
 /**
  * @function acquireUserData
  * @description Use WebClient to acquire user information via user ID.
- * @param {boolean} condition 
+ * @param {string} id
+ * @param {WebClient} webclient
  */
 function acquireUserData(id, webclient) {
     assert(id !== undefined && id !== null && id !== ""
         && typeof id === "string");
     return webclient.users.info({id});
 }
-
+/**
+ * @enum subtypes
+ * @description Type of message subtypes
+ */
 const subtypes = {
-    "bot_message": "A message was posted by an integration",
-    "channel_archive": "A message was posted by an integration",
-    "channel_join": "A member joined a channel",
-    "channel_leave": "A member left a channel",
-    "channel_name": "A channel was renamed",
-    "channel_purpose": "A channel purpose was updated",
-    "channel_topic": "A channel topic was updated",
-    "channel_unarchive": "A channel was unarchived",
-    "file_comment": "A comment was added to a file",
-    "file_mention": "A file was mentioned in a channel",
-    "file_share": "A file was shared into a channel",
-    "group_archive": "A group was archived",
-    "group_join": "A member joined a group",
-    "group_leave": "A member left a group",
-    "group_name": "A group was renamed",
-    "group_purpose": "A group purpose was updated",
-    "group_topic": "A group topic was updated",
-    "group_unarchive": "A group was unarchived",
-    "me_message": "A /me message was sent",
-    "message_changed": "A message was changed",
-    "message_deleted": "A message was deleted",
-    "message_replied": "A message thread received a reply",
-    "pinned_item": "An item was pinned in a channel",
-    "reply_broadcast": "(No longer served) A message thread's reply was broadcast to a channel",
-    "thread_broadcast": "A message thread's reply was broadcast to a channel",
-    "unpinned_item": "An item was unpinned from a channel"
-
+    "bot_message": 0,
+    "channel_archive": 1,
+    "channel_join": 2,
+    "channel_leave": 3,
+    "channel_name": 4,
+    "channel_purpose": 5,
+    "channel_topic": 6,
+    "channel_unarchive": 7,
+    "file_comment": 8,
+    "file_mention": 9,
+    "file_share": 10,
+    "group_archive": 11,
+    "group_join": 12,
+    "group_leave": 13,
+    "group_name": 14,
+    "group_purpose": 15,
+    "group_topic": 16,
+    "group_unarchive": 17,
+    "me_message": 18,
+    "message_changed": 19,
+    "message_deleted": 20,
+    "message_replied": 21,
+    "pinned_item": 22,
+    "reply_broadcast": 23,
+    "thread_broadcast": 24,
+    "unpinned_item": 25
 }
+Object.freeze(subtypes);
 
 module.exports = {
     assert: assert,
-    acquireUserData: acquireUserData
+    acquireUserData: acquireUserData,
+    subtypes: messageSubtypes
 }

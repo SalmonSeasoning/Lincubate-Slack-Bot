@@ -8,10 +8,6 @@ const CMD = require('../command.js'),
     redditURL = "https://www.reddit.com/r/memes/random.json",
     limit = 1;
 
-/**
- * @function doRedditCall call reddit with certain parameters
- */
-
 const command = new CMD.BaseCommand("doathing", CMD.Roles.Developer, (data) => {    // CMD.Roles.SingleChannelGuest
     https.get(redditURL + '?limit=' + limit, (response)=>{
         response.on('data', (d)=>{
