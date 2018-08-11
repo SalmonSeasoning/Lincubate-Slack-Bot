@@ -1,5 +1,6 @@
 /**
- * @module command A module for commands.
+ * @module command
+ * @description A module for commands.
  */
 const slack = require("@slack/client");
 
