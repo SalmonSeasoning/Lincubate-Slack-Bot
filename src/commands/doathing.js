@@ -12,7 +12,7 @@ const CMD = require('../command.js'),
  * @function doRedditCall call reddit with certain parameters
  */
 
-const command = new CMD.BaseCommand("doathing", CMD.Roles.SingleChannelGuest, (data) => {
+const command = new CMD.BaseCommand("doathing", CMD.Roles.Developer, (data) => {    // CMD.Roles.SingleChannelGuest
     https.get(redditURL + '?limit=' + limit, (response)=>{
         response.on('data', (d)=>{
             // TODO

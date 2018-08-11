@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: commands/viewrepo.js</title>
+    <title>JSDoc: Source: commands/announce.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: commands/viewrepo.js</h1>
+    <h1 class="page-title">Source: commands/announce.js</h1>
 
     
 
@@ -27,16 +27,14 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @module command/viewrepo
- * @description A module for responding to the user request with the official repository link.
+ * @module command/announce
+ * @description A module for "announce" command.
  */
 
 const CMD = require('../command.js');
 
-const command = new CMD.BaseCommand("viewrepo", CMD.Roles.SingleChannelGuest, (data) => {
-    let client = data.getRTMClient(),
-        message = data.getMessage();
-    client.sendMessage("Lincubot Repository: https://github.com/SalmonSeasoning/Lincubate-Slack-Bot", message.channel);
+const command = new CMD.BaseCommand("announce", CMD.Roles.Developer, (data) => {    // CMD.Roles.Member
+    // requires figuring out the Slack WebClient situation first...
 });
 
 module.exports = command;</code></pre>

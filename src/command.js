@@ -109,6 +109,10 @@ class DataSet {
  */
 const Roles = {
     /**
+     * @description Only accessible for debugging and testing. Commands considered Work In Progress. Same user applications as Violator.
+     */
+    Developer: 5,
+    /**
      * @description Is a Workspace Owner. Provide maximum access to bot features. Control all permissions, even admins'.
      */
     WorkspaceOwner: 4,
