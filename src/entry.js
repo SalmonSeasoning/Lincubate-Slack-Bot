@@ -48,7 +48,7 @@ rtm.on("message", (message) => {
 
         for (command in commands) {
             if (reqCommand.toLowerCase() === command.toLowerCase()) {
-                acquireUserData(message.user).then((slackReturnData)=>{
+                acquireUserData(message.user, web).then((slackReturnData)=>{
                     if(user.ok === false) {
                         throw(new Error("Oops! Something went wrong. acquireUserData() returned data but has failed."));
                     }
@@ -62,7 +62,7 @@ rtm.on("message", (message) => {
 
 
                 }, (err)=>{
-                    console.log(`${message.user} : ${command} [${new Date()}] FAILED.`);
+                    console.log(`${message.user} : ${command} [${new Date()}] FAILED.\nPRECEDING ERROR: ${err}`);
                 });
                 break;
             }

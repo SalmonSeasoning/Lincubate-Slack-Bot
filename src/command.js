@@ -24,7 +24,7 @@ class BaseCommand {
      * @function call
      * @param {DataSet} data Data instanceof DataSet passed.
      */
-    call(data) {
+    static call(data) {
         if (data instanceof DataSet) {
             this.todo(data);
         } else {

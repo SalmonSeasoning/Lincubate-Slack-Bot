@@ -21,7 +21,7 @@ function assert(condition) {
 function acquireUserData(id, webclient) {
     assert(id !== undefined && id !== null && id !== ""
         && typeof id === "string");
-    return webclient.users.info(id);
+    return webclient.users.info({id});
 }
 
 const subtypes = {
