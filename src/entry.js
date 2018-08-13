@@ -11,7 +11,7 @@ const Slack = require("@slack/client"),
     botPrefix = '$',    // See README.md for bot prefix.
 
 
-    { DataSet } = require("./command.js"),
+    { DataSet, BaseCommand } = require("./command.js"),
     { assert, acquireUserData } = require("./actions.js"),
     commands = require("./commands/index.js");
 
@@ -52,17 +52,21 @@ rtm.on("message", (message) => {
                     if(user.ok === false) {
                         throw(new Error("Oops! Something went wrong. acquireUserData() returned data but has failed."));
                     }
-                    let shiftedText = text.split(' ').shift();
+                    let shiftedText = String(text);
+                    shiftedText = shiftedText.split(' ');
+                    shiftedText.shift();
                     shiftedText = shiftedText.join(' ');
                     dataset = new DataSet(message, shiftedText, rtm, web, slackReturnData.user);
                     console.log(`${message.user} : ${command} [${new Date()}]`);
-
-
-                    command.call(data); // this NEEDS to be fixed !!!
-
-
+                    commands[command].call(dataset);
                 }, (err)=>{
-                    console.log(`${message.user} : ${command} [${new Date()}] FAILED.\nPRECEDING ERROR: ${err}`);
+                    let shiftedText = String(text);
+                    shiftedText = shiftedText.split(' ');
+                    shiftedText.shift();
+                    shiftedText = shiftedText.join(' ');
+                    dataset = new DataSet(message, shiftedText, rtm, web, null);
+                    commands[command].call(dataset);
+                    console.log(`${message.user} [${new Date()}] FAILED TO GET INFO.\nPRECEDING ERROR: ${err}`);
                 });
                 break;
             }

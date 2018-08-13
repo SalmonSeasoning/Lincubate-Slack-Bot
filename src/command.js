@@ -25,11 +25,11 @@ class BaseCommand {
      * @function call
      * @param {DataSet} data Data instanceof DataSet passed.
      */
-    static call(data) {
+    call(data) {
         if (data instanceof DataSet) {
             this.todo(data);
         } else {
-            throw (new Error("Invalid object type. Expected DataSet."));
+            throw (new Error("Invalid object type. Expected DataSet. Expected BaseCommand."));
         }
     }
 }
@@ -51,8 +51,8 @@ class DataSet {
     constructor(msg_event, txt, client, webclient, userdata) {
         this.message = msg_event;
         /** @alias this.client this.rtmclient */
-        this.client;
-        this.rtmclient = this.rtmclient = client;
+        this.client = client;
+        this.rtmclient = client;
         this.webclient = webclient;
         this.userdata = userdata;
         this.text = txt;

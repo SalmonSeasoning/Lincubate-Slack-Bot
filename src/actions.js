@@ -13,6 +13,7 @@ function assert(condition) {
         throw (new Error("Assert condition returned false."));
     }
 }
+
 /**
  * @function acquireUserData
  * @description Use WebClient to acquire user information via user ID.
@@ -28,7 +29,7 @@ function acquireUserData(id, webclient) {
  * @enum subtypes
  * @description Type of message subtypes
  */
-const subtypes = {
+const messageSubtypes = {
     /**
      * @type {number}
      * @description A message was posted by an integration.
@@ -160,7 +161,7 @@ const subtypes = {
      */
     "unpinned_item": 25
 }
-Object.freeze(subtypes);
+Object.freeze(messageSubtypes);
 
 module.exports = {
     assert: assert,
