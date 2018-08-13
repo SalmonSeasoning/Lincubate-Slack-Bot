@@ -1,19 +1,3 @@
-Clone both primary repositories. [Lincubate-Slack-Bot](https://github.com/SalmonSeasoning/Lincubate-Slack-Bot)/[Lincubate-Slack-Bot-TypeScript](https://github.com/SalmonSeasoning/Lincubate-Slack-Bot-TypeScript) (Ignore if already cloned.)
-
-Pull updates.
-
-Make sure TypeScript is installed. `npm i -g typescript`
-
-Modify the .ts files in Lincubate-Slack-Bot-TypeScript.
-
-To compile, `tsc Lincubate-Slack-Bot-TypeScript/src/filename.ts --outDir Lincubate-Slack-Bot/src`. (file location --> target directory)
-
-Push updates.
-
-Go to Lincubate-Slack-Bot and run `git submodule update --remote --merge`.
-
-## (As of 11.08.2018 please ignore the above. The TypeScript files are not ready yet.)
-
 Before committing your changes, make sure it will not disturb the flow of work in this repository.
 
 Make sure tests were done to ensure everything works. If things are known to break because of certain changes,
