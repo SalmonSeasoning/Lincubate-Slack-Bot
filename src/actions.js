@@ -26,16 +26,6 @@ function acquireUserData(id, webclient) {
     return webclient.users.info({user: id, include_locale: false});
 }
 /**
- * @function getUsers
- * @description Use WebClient to acquire users in the Workspace.
- * @param {WebClient} webclient WebClient object to make the request with.
- */
-function acquireUserData(webclient) {
-    assert(id !== undefined && id !== null && id !== ""
-        && typeof id === "string");
-    return webclient.users.info({ user: id, include_locale: false });
-}
-/**
  * @enum subtypes
  * @description Type of message subtypes
  */
