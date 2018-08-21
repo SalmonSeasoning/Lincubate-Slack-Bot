@@ -6,8 +6,8 @@
 const CMD = require('../command.js');
 
 const command = new CMD.BaseCommand("help", CMD.Roles.SingleChannelGuest, (data) => {
-    let client = data.getClient(),
-        message = data.getMessage();
+    let client = data.Client,
+        message = data.Message;
     client.sendMessage("Commands are an upcoming feature. Lol.", message.channel);
 });
 

@@ -58,47 +58,47 @@ class DataSet {
         this.text = txt;
     }
     /**
-     * @function getClient
-     * @alias getRTMClient
+     * @function Client
+     * @alias RTMClient
      * @description Return RTMClient.
      */
-    get getClient() {
+    get Client() {
         return this.client;
     }
     /**
-     * @function getRTMClient
-     * @alias getClient
+     * @function RTMClient
+     * @alias Client
      * @description Return RTMClient.
      */
-    get getRTMClient() {
+    get RTMClient() {
         return this.client;
     }
     /**
-     * @function getWebClient
+     * @function WebClient
      * @description Return WebClient.
      */
-    get getWebClient() {
+    get WebClient() {
         return this.webclient;
     }
     /**
-     * @function getMessage
+     * @function Message
      * @description Return message event.
      */
-    get getMessage() {
+    get Message() {
         return this.message;
     }
     /**
-     * @function getText
+     * @function Text
      * @description Return text from Message event.
      */
-    get getText() {
+    get Text() {
         return this.text;
     }
     /**
-     * @function getUserData
+     * @function UserData
      * @description Return UserData from Message.
      */
-    get getUserData() {
+    get UserData() {
         return this.userdata;
     }
 }

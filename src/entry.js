@@ -49,14 +49,15 @@ rtm.on("message", (message) => {
         for (command in commands) {
             if (reqCommand.toLowerCase() === command.toLowerCase()) {
                 acquireUserData(message.user, web).then((slackReturnData)=>{
-                    if(user.ok === false) {
+                    if(slackReturnData.ok === false) {
                         throw(new Error("Oops! Something went wrong. acquireUserData() returned data but has failed."));
                     }
                     let shiftedText = String(text);
                     shiftedText = shiftedText.split(' ');
                     shiftedText.shift();
                     shiftedText = shiftedText.join(' ');
-                    dataset = new DataSet(message, shiftedText, rtm, web, slackReturnData.user);
+                    // create DataSet object
+                    let dataset = new DataSet(message, shiftedText, rtm, web, slackReturnData.user);
                     console.log(`${message.user} : ${command} [${new Date()}]`);
                     commands[command].call(dataset);
                 }, (err)=>{
@@ -64,7 +65,8 @@ rtm.on("message", (message) => {
                     shiftedText = shiftedText.split(' ');
                     shiftedText.shift();
                     shiftedText = shiftedText.join(' ');
-                    dataset = new DataSet(message, shiftedText, rtm, web, null);
+                    // create DataSet object
+                    var dataset = new DataSet(message, shiftedText, rtm, web, null);
                     commands[command].call(dataset);
                     console.log(`${message.user} [${new Date()}] FAILED TO GET INFO.\nPRECEDING ERROR: ${err}`);
                 });

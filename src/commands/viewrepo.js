@@ -6,8 +6,8 @@
 const CMD = require('../command.js');
 
 const command = new CMD.BaseCommand("viewrepo", CMD.Roles.SingleChannelGuest, (data) => {
-    let client = data.getClient(),
-        message = data.getMessage();
+    let client = data.Client,
+        message = data.Message;
     client.sendMessage("Lincubot Repository: https://github.com/SalmonSeasoning/Lincubate-Slack-Bot", message.channel);
 });
 
