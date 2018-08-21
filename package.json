@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SalmonSeasoning/Lincubate-Slack-Bot#readme",
   "dependencies": {
-    "@slack/client": "^4.4.0"
+    "@slack/client": "^4.4.0",
+    "request": "^2.88.0"
   }
 }
