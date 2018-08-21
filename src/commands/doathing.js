@@ -9,14 +9,17 @@ const CMD = require('../command.js'),
     limit = 1;
 
 const command = new CMD.BaseCommand("doathing", CMD.Roles.Developer, (data) => {    // CMD.Roles.SingleChannelGuest
-    https.get(redditURL + '?limit=' + limit, (response)=>{
+    let client = data.Client,
+        message = data.Message;
+    client.sendMessage("Need to figure out Reddit API first, hold my juice box.", message.channel);
+    /*https.get(redditURL + '?limit=' + limit, (response)=>{
         response.on('data', (d)=>{
             // TODO
         });
         response.on('error', (err)=>{
             // TODO
         });
-    });
+    });*/
 });
 
 module.exports = command;
