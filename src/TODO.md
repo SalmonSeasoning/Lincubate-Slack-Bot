@@ -6,6 +6,10 @@ So far the Roles object contains the permission names and their
 hierarchal value, but the command interpreter fails to check their
 Workspace status before running the command.
 
+### Workspace and User Cache
+(**IMPORTANT!**) So requests don't eat up internet trying to reach data
+that was previously retrieved already. Max Age per Cache: 20 minutes.
+
 ### Customized Permissions
 Extending the TODO for Permissions, a list of custom permission sets
 would be essential for developmental purposes regarding bot-sensitive

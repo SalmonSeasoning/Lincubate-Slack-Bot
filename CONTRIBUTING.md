@@ -11,7 +11,8 @@ use [ALT] + [CTRL] + [F] to just format the changed documents for you.
 Pull before you Push so commits that were probably important aren't sent to the void.
 
 Please... for the love of God, compile the documentation! Don't leave it uncompiled and screw over the joy of
-having updated docs!
+having updated docs! `jsdoc {DIRECTORIES} -d ./docs` -- replace {DIRECTORIES} with the source directory and
+its subdirectories. I.E. `./src/ ./src/commands`
 
 **DO NOT** spoof your Git commits to look like Linus Torvalds or Bjarne Stroustrup. You're just being a Grade
 A dirtbag to all of those people who may actually keep tabs on the commits for one reason or another.
